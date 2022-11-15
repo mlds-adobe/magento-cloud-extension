@@ -209,6 +209,14 @@ const commands = [
     help: 'Switch between Elasticsearch and Live Search'
   },
   {
+    id: 'toggle-elasticSuite',
+    text: 'Toggle Elastic Suite Search',
+    scriptsInValue: ['lib.sh', 'toggle-elasticSuite.sh', 'reindex-on-schedule.sh', 'reindex.sh', 'cache-flush.sh', 'post-cmds.sh'],
+    cmdTypes: ['magento'],
+    envTypes: ['cloud', 'vm'],
+    help: 'Switch between Elasticsearch and Elastic Suite (one way)'
+  },
+  {
     id: 'sync-with-livesearch',
     text: 'Sync with Live Search On',
     scriptsInValue: ['lib.sh', 'sync-with-livesearch.sh', 'reindex-on-schedule.sh', 'reindex.sh', 'cache-flush.sh', 'post-cmds.sh'],
