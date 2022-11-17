@@ -25,8 +25,7 @@ msg "Enter youtr github token, you can get it at https://github.com/settings/tok
 read -r -p "Enter token: " < "$read_input_src" 2>/dev/tty
 
 php composer.phar config -g github-oauth.github.com $REPLY
-php composer.phar config -g repo.magento.com.username b17aa908c13768cef2a5a3a043bb3c54
-php composer.phar config -g repo.magento.com.password 93f1f71fd779eb46af01fd7587e5fdba
+php composer.phar config --json repo.magento.com '{"username": "b17aa908c13768cef2a5a3a043bb3c54","password": "93f1f71fd779eb46af01fd7587e5fdba"}'
 php composer.phar require smile/elasticsuite ~2.10.12
 
 echo "        CONFIG__DEFAULT__SMILE_ELASTICSUITE_CORE_BASE_SETTINGS__ES_CLIENT__SERVERS: 'opensearch.internal'" >> $app_file
