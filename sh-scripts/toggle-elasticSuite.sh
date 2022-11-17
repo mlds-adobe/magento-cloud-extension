@@ -27,7 +27,17 @@ read -r -p "Enter token: " < "$read_input_src" 2>/dev/tty
 php composer.phar config -g github-oauth.github.com $REPLY
 #php composer.phar config -g --json repo.magento.com '{"username": "b17aa908c13768cef2a5a3a043bb3c54","password": "93f1f71fd779eb46af01fd7587e5fdba"}'
 touch auth.json
-echo "{\r\n"http-basic": {\r\n"repo.magento.com": {\r\n"username": "b17aa908c13768cef2a5a3a043bb3c54",\r\n"password": "93f1f71fd779eb46af01fd7587e5fdba"\r\n}\r\n}\r\n}" >> auth.json
+cat > auth.json <<- EOM
+{
+"http-basic": {
+"repo.magento.com": {
+"username": "b17aa908c13768cef2a5a3a043bb3c54",
+"password": "93f1f71fd779eb46af01fd7587e5fdba"
+}
+}
+}
+EOM
+
 php composer.phar require smile/elasticsuite ~2.10.12
 
 echo "        CONFIG__DEFAULT__SMILE_ELASTICSUITE_CORE_BASE_SETTINGS__ES_CLIENT__SERVERS: 'opensearch.internal'" >> $app_file
