@@ -6,6 +6,7 @@ echo "Switching to ElasticSuite..."
 tmp_git_dir="$(mktemp -d)"
 
 git clone --branch "$environment" "$project@git.demo.magento.cloud:$project.git" "$tmp_git_dir"
+sudo apt -y install php8.1-bcmath php8.1-common php8.1-curl php8.1-fpm php8.1-gd php8.1-intl php8.1-mbstring php8.1-mysql php8.1-soap php8.1-xml php8.1-xsl php8.1-zip php8.1-cli
 
 cd "$tmp_git_dir"
 config_file="$tmp_git_dir"/app/etc/config.php
