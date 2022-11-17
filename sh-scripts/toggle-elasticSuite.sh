@@ -21,6 +21,10 @@ php -r "if (hash_file('sha384', 'composer-setup.php') === '55ce33d7678c5a6110855
 php composer-setup.php
 php -r "unlink('composer-setup.php');"
 
+msg "Enter youtr github token, you can get it at https://github.com/settings/tokens/new?scopes=repo&description=Composer+on+AC+Chrome+Extension"
+read -r -p "Enter token: " < "$read_input_src" 2>/dev/tty
+
+php composer.phar config -g github-oauth.github.com $REPLY
 php composer.phar require smile/elasticsuite ~2.10.12
 
 echo "        CONFIG__DEFAULT__SMILE_ELASTICSUITE_CORE_BASE_SETTINGS__ES_CLIENT__SERVERS: 'opensearch.internal'" >> $app_file
