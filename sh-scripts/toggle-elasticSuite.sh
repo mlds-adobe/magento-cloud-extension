@@ -21,7 +21,7 @@ php -r "if (hash_file('sha384', 'composer-setup.php') === '55ce33d7678c5a6110855
 php composer-setup.php
 php -r "unlink('composer-setup.php');"
 
-composer require smile/elasticsuite ~2.10.12
+php composer.phar require smile/elasticsuite ~2.10.12
 #perl -i -pe "s/\"paradoxlabs\/tokenbase\": \"4.5.1.x-dev\"/\"paradoxlabs\/tokenbase\": \"4.5.1.x-dev\", \r\n\"smile\/elasticsuite\": \"\^2.10\"/" "$service_file"
 echo "        CONFIG__DEFAULT__SMILE_ELASTICSUITE_CORE_BASE_SETTINGS__ES_CLIENT__SERVERS: 'opensearch.internal'" >> $app_file
 
