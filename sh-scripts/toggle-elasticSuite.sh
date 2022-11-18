@@ -1,7 +1,7 @@
 # shellcheck shell=bash
 : || source lib.sh # trick shellcheck into finding certain referenced vars
 
-echo "Switching to ElasticSuite... v0.4"
+echo "Switching to ElasticSuite... v0.41"
 
 tmp_git_dir="$(mktemp -d)"
 
@@ -20,7 +20,7 @@ echo "Test if ES already there..."
 if grep -q "elasticsuite" "$env_file"; then
   echo "Already with ElasticSuite"
 else
-  echo "Installing  & Configuring ElasticSuite"
+  echo "Installing x Configuring ElasticSuite"
   echo "Configuration..."
   perl -i -pe "s/engine: elasticsearch7/engine: elasticsuite/" "$env_file"
   perl -i -pe "s/type: opensearch:1.2/type: opensearch:1.2\r\n    configuration:\r\n        plugins:\r\n            - analysis-icu\r\n            - analysis-phonetic/g" "$service_file"
