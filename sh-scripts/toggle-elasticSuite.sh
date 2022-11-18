@@ -16,7 +16,7 @@ env_file="$tmp_git_dir"/.magento.env.yaml
 app_file="$tmp_git_dir"/.magento.app.yaml
 service_file="$tmp_git_dir"/.magento/services.yaml
 
-if grep -q "'engine: elasticsearch7/engine: elasticsuite" "$env_file"; then
+if grep -q "engine: elasticsearch7/engine: elasticsuite" "$env_file"; then
 echo "Already with ElasticSuite"
 else
 echo "Installing  & Configuring ElasticSuite"
