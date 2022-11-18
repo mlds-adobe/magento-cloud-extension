@@ -1,7 +1,7 @@
 # shellcheck shell=bash
 : || source lib.sh # trick shellcheck into finding certain referenced vars
 
-echo "Switching to ElasticSuite... v0.3"
+echo "Switching to ElasticSuite... v0.4"
 
 tmp_git_dir="$(mktemp -d)"
 
@@ -17,7 +17,7 @@ app_file="$tmp_git_dir"/.magento.app.yaml
 service_file="$tmp_git_dir"/.magento/services.yaml
 echo "Test if ES already there..."
 
-if grep -q "engine: elasticsearch7/engine: elasticsuite" "$env_file"; then
+if grep -q "elasticsuite" "$env_file"; then
   echo "Already with ElasticSuite"
 else
   echo "Installing  & Configuring ElasticSuite"
