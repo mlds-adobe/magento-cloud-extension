@@ -1,7 +1,7 @@
 # shellcheck shell=bash
 : || source lib.sh # trick shellcheck into finding certain referenced vars
 
-echo "Switching to ElasticSuite..."
+echo "Switching to ElasticSuite... v0.3"
 
 tmp_git_dir="$(mktemp -d)"
 
