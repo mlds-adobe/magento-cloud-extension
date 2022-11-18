@@ -14,6 +14,9 @@ env_file="$tmp_git_dir"/.magento.env.yaml
 app_file="$tmp_git_dir"/.magento.app.yaml
 service_file="$tmp_git_dir"/.magento/services.yaml
 
+if grep -q "'engine: elasticsearch7/engine: elasticsuite" "$env_file"; then
+echo "Already with ElasticSuite"
+else
 perl -i -pe "s/engine: elasticsearch7/engine: elasticsuite/" "$env_file"
 perl -i -pe "s/type: opensearch:1.2/type: opensearch:1.2\r\n    configuration:\r\n        plugins:\r\n            - analysis-icu\r\n            - analysis-phonetic/g" "$service_file"
 
@@ -55,3 +58,4 @@ git add -A
 git commit -m "Switch to ElasticSuite"
 git push
 rm -rf "$tmp_git_dir" # clean up
+fi
